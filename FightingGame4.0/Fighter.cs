@@ -4,9 +4,12 @@ namespace FightingGame4._0
 {
     public class Fighter
     {
-        string name;
-        int hp;
+        public string name;
+        public int hp;
         Weapon weapon;
+
+        Random rand = new Random();
+        int resultDamage;
 
 
         public Fighter(string nam, int health, Weapon weap)
@@ -18,9 +21,10 @@ namespace FightingGame4._0
 
         public void Attack(Fighter target)
         {
+            resultDamage = (rand.Next(8, 13) * weapon.attack) / 10;
             Utilities.WriteNice($"{name} strikes {target.name}!");
-            Utilities.WriteNice($"{weapon.attack} damage!");
-            target.hp -= weapon.attack;
+            Utilities.WriteNice($"{resultDamage} damage!");
+            target.hp -= resultDamage;
         }
 
         public void PrintStats()
