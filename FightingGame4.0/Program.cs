@@ -7,7 +7,8 @@ namespace FightingGame4._0
     {
         static void Main(string[] args)
         {
-            Utilities.WriteNice("Hello World!");
+            Console.WriteLine("WALTER BATTLE: SPECIAL EDITION");
+            Console.WriteLine();
 
             //Weapons
             Weapon sword = new Weapon("Sword", 100);
@@ -16,7 +17,8 @@ namespace FightingGame4._0
             //Fighters
             Fighter walter = new Fighter("Walter", 600, sword);
             Fighter floppa = new Fighter("Floppa", 500, axe);
-            List<Fighter> fighters = new List<Fighter>() { walter, floppa };
+            Fighter bingus = new Fighter("Bingus", 450, sword);
+            List<Fighter> fighters = new List<Fighter>() { walter, floppa, bingus };
 
             //Choose fighters
             Utilities.WriteNice("CHOOSE YOUR FIGHTER");

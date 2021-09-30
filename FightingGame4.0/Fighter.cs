@@ -5,6 +5,7 @@ namespace FightingGame4._0
     public class Fighter
     {
         public string name;
+        public int hpMax;
         public int hp;
         Weapon weapon;
 
@@ -15,8 +16,9 @@ namespace FightingGame4._0
         public Fighter(string nam, int health, Weapon weap)
         {
             name = nam;
-            hp = health;
+            hpMax = health;
             weapon = weap;
+            hp = hpMax;
         }
 
         public void Attack(Fighter target)
@@ -29,8 +31,23 @@ namespace FightingGame4._0
 
         public void PrintStats()
         {
-            Console.WriteLine(name);
-            Console.WriteLine($"HP: {hp}");
+            int hpMaxVis = 40;
+            float hpVis = ((float)hp / (float)hpMax) * (float)hpMaxVis;
+            Console.WriteLine(hpMaxVis);
+            Console.WriteLine(hpVis);
+
+            Console.Write(name);
+            Console.ForegroundColor = ConsoleColor.Green;
+            for (int i = 0; i < (int)hpVis; i++)
+            {
+                Console.Write("█");
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            for (int i = 0; i < hpMaxVis - (int)hpVis; i++)
+            {
+                Console.Write("█");
+            }
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
         }
 
